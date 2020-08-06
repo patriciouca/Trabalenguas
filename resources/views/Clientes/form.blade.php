@@ -17,30 +17,6 @@
     </div>
 
 
-    <div class="col-xs-6 col-sm-6 col-md-6">
-        <div class="form-group">
-            <label for="telefono">Telefono</label>
-            <input type="text" name="telefono" id="telefono" class="form-control input-sm" placeholder="telefono"
-                   @isset($cliente)
-                   value="{{$cliente->telefono}}"
-                    @endisset
-            >
-        </div>
-    </div>
-</div>
-
-<div class="row">
-
-    <div class="col-xs-6 col-sm-6 col-md-6">
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input type="text" name="email" id="email" class="form-control input-sm" placeholder="email"
-                   @isset($cliente)
-                   value="{{$cliente->email}}"
-                    @endisset
-            >
-        </div>
-    </div>
 
 
     <div class="col-xs-6 col-sm-6 col-md-6">
@@ -55,10 +31,10 @@
             <input type="file" id="foto" name="fotoG">
         </div>
     </div>
-
 </div>
 
 <div class="row">
+
     <div class="col-xs-6 col-sm-6 col-md-6">
         <div class="form-group">
             <label for="apellidos">Apellidos</label>
@@ -70,6 +46,34 @@
             <input type="text" name="apellido2" id="apellido2" class="form-control input-sm" placeholder="Apellido2"
                    @isset($cliente)
                    value="{{$cliente->apellido2}}"
+                    @endisset
+            >
+        </div>
+    </div>
+
+    <div class="col-xs-6 col-sm-6 col-md-6">
+        <div class="form-group">
+            <label for="telefono">Telefono</label>
+            <input type="text" name="telefono" id="telefono" class="form-control input-sm" placeholder="telefono"
+                   @isset($cliente)
+                   value="{{$cliente->telefono}}"
+                    @endisset
+            >
+        </div>
+    </div>
+
+
+</div>
+
+<div class="row">
+
+
+    <div class="col-xs-6 col-sm-6 col-md-6">
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" name="email" id="email" class="form-control input-sm" placeholder="email"
+                   @isset($cliente)
+                   value="{{$cliente->email}}"
                     @endisset
             >
         </div>
@@ -136,7 +140,7 @@
     </div>
     <div class="col-xs-6 col-sm-6 col-md-6">
         <div class="form-group">
-            <label for="aspecto">Aspectos</label>
+            <label for="aspecto">Aspectos a reforzar</label>
 
             <select name="aspectos[]" class="form-control input-sm" id="aspectos" multiple="multiple">
                 @foreach($aspectos as $aspecto)

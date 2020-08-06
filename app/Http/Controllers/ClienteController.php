@@ -9,6 +9,7 @@ use App\Colegios;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
 
 class ClienteController extends Controller
 {
@@ -55,13 +56,17 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
+
+
         //var_dump( explode(" ", $request['description']));
-
-
 
         $this->tratarClientes($request);
         if(isset($request->fotoG))
+        {
             $this->procesarFoto($request->file('fotoG'),$request);
+        }
+
+        //return storage_path().'fotos/';
 
         if(isset($request->informeG))
         {
@@ -212,6 +217,12 @@ class ClienteController extends Controller
         $request->merge(["foto"=>$name]);
 
         Storage::disk('local')->putFileAs('fotos/', $file, $name);
+
+
+        //$image_resize = Image::make(storage_path().'\fotos/'.$name);
+
+        //$image_resize->resize(300, 300);
+        //Storage::disk('local')->putFileAs('fotos/', $image_resize, $name);
 
     }
 

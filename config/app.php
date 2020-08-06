@@ -182,6 +182,7 @@ return [
 
         Barryvdh\DomPDF\ServiceProvider::class,
 
+
     ],
 
     /*
