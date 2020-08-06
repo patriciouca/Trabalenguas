@@ -54,7 +54,7 @@ class UsuarioController extends Controller
     public function store(Request $request)
     {
 
-        $this->validate($request,['name'=>'required','password'=>'required','email'=>'required','primer_apellido'=>'required','segundo_apellido'=>'required']);
+        $this->validate($request,['name'=>'required']);
         $request->merge(["password"=>md5($request->password)]);
         $usuario=User::create($request->all());
 
@@ -101,7 +101,7 @@ class UsuarioController extends Controller
     public function update(Request $request, $id)
     {
 
-        $this->validate($request,['name'=>'required','email'=>'required','primer_apellido'=>'required','segundo_apellido'=>'required']);
+        $this->validate($request,['name'=>'required']);
 
         if($request['password']==null)
             unset($request['password']);

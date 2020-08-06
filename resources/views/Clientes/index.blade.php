@@ -33,7 +33,12 @@
                                                 <tr>
                                                     @foreach(array_keys($clientes[0]->toArray()) as $atributo)
                                                         @if(in_array($atributo, $campos))
-                                                            <td>{{$cliente->$atributo}}</td>
+                                                            @if($atributo!="email")
+                                                                <td>{{$cliente->$atributo}}</td>
+                                                            @else
+                                                                <td><a href="mailto:{{$cliente->$atributo}}">{{$cliente->$atributo}}</a></td>
+                                                            @endif
+
                                                         @endif
 
                                                     @endforeach

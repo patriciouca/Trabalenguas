@@ -47,3 +47,5 @@ Route::resource('colegio', 'ColegioController');
 Route::get('/imagen/{id}', 'ImagenController@imagen');
 
 Route::get('/informes/{id}', 'ImagenController@informe');
+
+Route::get('/horario', 'ClasesImpartidasController@horario');

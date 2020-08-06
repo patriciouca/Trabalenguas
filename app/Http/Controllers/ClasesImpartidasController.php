@@ -41,6 +41,42 @@ class ClasesImpartidasController extends Controller
 
     }
 
+    public function horario()
+    {
+        $clases_impartidas=Clases_Impartidas::orderBy('id','DESC')->paginate(10);
+
+        $dias=["Lunes","Martes","Miercoles","Jueves","Viernes"];
+
+        $primero=[];
+        $segundo=[];
+
+        $horas=["15:30","16:15","17:00","17:45","18:30","19:15","20:00","20:45"];
+
+        foreach($clases_impartidas as $clase){
+            $id=$clase['clase_id'];
+
+            $clase_modelo=Clases::find($id);
+
+            $mifecha = new DateTime($clase['hora']);
+            $mifecha->modify('+'.$clase_modelo->duracion.'minutes');
+
+            $clase["hora_fin"]=$mifecha->format('H:i');
+
+            if($clase_modelo->nombre=="PT" or $clase_modelo->nombre=="AL")
+            {
+                array_push($primero,$clase);
+
+            }
+            else
+                array_push($Segundo,$clase);
+        }
+
+        $campos=["dia","hora","hora fin"];
+
+        return view('Clases_Impartidas/horario',compact('horas','primero','segundo','campos',"dias"));
+
+    }
+
     /**
      * Show the form for creating a new resource.
      *
