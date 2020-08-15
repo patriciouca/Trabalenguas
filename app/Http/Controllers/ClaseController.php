@@ -17,6 +17,8 @@ class ClaseController extends Controller
         $clases=Clases::orderBy('id','DESC')->paginate(10);
         $campos=["nombre","duracion"];
 
+
+
         return view('Clases/index',compact('clases','campos'));
 
     }

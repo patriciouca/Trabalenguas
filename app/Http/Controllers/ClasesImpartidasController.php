@@ -68,7 +68,7 @@ class ClasesImpartidasController extends Controller
 
             }
             else
-                array_push($Segundo,$clase);
+                array_push($segundo,$clase);
         }
 
         $campos=["dia","hora","hora fin"];
