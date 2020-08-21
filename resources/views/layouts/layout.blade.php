@@ -37,7 +37,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Trabalenguas</a>
+            <a class="navbar-brand" href="horario"><img style="width:50px;height:35px;" src="gabinete.jpg" alt=""></a>
         </div>
         <div id="navbar" style="margin-left: 20px" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
@@ -68,7 +68,9 @@
                     </ul>
                 </li>
 
-                <li><a href="{{url("/login")}}">Login</a></li>
+                <li><a href="{{url("/horario")}}">Horario</a></li>
+
+                <li><a href="{{url("/logout")}}">Salir</a></li>
             
 
 

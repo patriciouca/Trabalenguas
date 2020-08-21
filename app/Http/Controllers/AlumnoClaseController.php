@@ -7,9 +7,17 @@ use App\Clases_Impartidas;
 use App\Clientes;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class AlumnoClaseController extends Controller
 {
+
+    public function __construct()
+    {
+        $rol = session('rol');
+        if(!isset($rol))
+            Redirect::to('login')->send();
+    }
     protected $titulo="Alumnos de la Clase ";
 
     public function verClase($id)

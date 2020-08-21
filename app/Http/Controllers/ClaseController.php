@@ -4,9 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Clases;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class ClaseController extends Controller
 {
+    public function __construct()
+    {
+
+    }
     /**
      * Display a listing of the resource.
      *

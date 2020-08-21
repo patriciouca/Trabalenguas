@@ -5,10 +5,16 @@ namespace App\Http\Controllers;
 use App\Gastos;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class GastoController extends Controller
-
 {
+    public function __construct()
+    {
+        $rol = session('rol');
+        if(!isset($rol))
+            Redirect::to('login')->send();
+    }
     /**
      * Display a listing of the resource.
      *

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" style="">
 <head>
     <meta charset="utf-8">
     <meta name="viewport"
@@ -27,70 +27,33 @@
         }
     </script>
 </head>
-<body>
-<nav class="navbar navbar-default ">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Trabalenguas</a>
-        </div>
-        <div id="navbar" style="margin-left: 20px" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
+<body class="fondo">
 
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gestión de Alumnos <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="{{url("/cliente")}}">Alumnos</a></li>
-                        <li><a href="{{url("/alergia")}}">Alergias</a></li>
-                        <li><a href="{{url("/aspecto")}}">Aspectos</a></li>
-                        <li><a href="{{url("/colegio")}}">Colegios</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gestión de Clases <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="{{url("/usuario")}}">Usuarios</a></li>
-                        <li><a href="{{url("/clase")}}">Clases</a></li>
-                        <li><a href="{{url("/clases_impartida")}}">Clases impartidas</a></li>
-                    </ul>
-                </li>
-
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gestión de pagos <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="{{url("/gasto").'?id='.now()->month}}">Gastos </a></li>
-                        <li><a href="{{url("/recibo").'?id='.now()->month}}">Recibos</a></li>
-                    </ul>
-                </li>
-
-                <li><a href="{{url("/login")}}">Login</a></li>
-            
-
-
-            </ul>
-            <!--
-            <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="./">Default <span class="sr-only">(current)</span></a></li>
-                <li><a href="../navbar-static-top/">Static top</a></li>
-                <li><a href="../navbar-fixed-top/">Fixed top</a></li>
-            </ul>
-            -->
-        </div><!--/.nav-collapse -->
-    </div><!--/.container-fluid -->
-</nav>
-<div class="container-fluid" style="margin-top: 50px">
 
     @yield('content')
-</div>
+
 <style type="text/css">
     .table {
         border-top: 2px solid #ccc;
 
+    }
+
+    .fondo{
+        overflow: hidden;
+        background: url("gabinete.jpg");
+        background-repeat:no-repeat;
+        background-color: rgb(216,217,222);
+
+    }
+
+    .container {
+        height: 200px;
+        position: relative;
+        border: 3px solid green;
+    }
+    .my-auto{
+    margin-top: auto;
+    margin-bottom: auto;
     }
 </style>
 </body>

@@ -7,11 +7,11 @@ use App\Gastos;
 use App\Recibos;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class ReciboController extends Controller
-
-
 {
+
     /**
      * Display a listing of the resource.
      *

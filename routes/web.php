@@ -20,6 +20,8 @@ Route::get('/', function () {
 Route::get('login', 'LoginController@index');
 Route::post('login', 'LoginController@acceso');
 
+Route::get('logout', 'LoginController@logout');
+
 Route::get('verClase/{id}', 'AlumnoClaseController@verClase');
 
 Route::get('alumnoclase/create/{id}', 'AlumnoClaseController@create')->name('crearAlumnoClase');

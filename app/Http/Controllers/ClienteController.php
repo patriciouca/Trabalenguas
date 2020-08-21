@@ -7,14 +7,24 @@ use App\Aspectos;
 use App\Clientes;
 use App\Colegios;
 use Carbon\Carbon;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
+
 
 class ClienteController extends Controller
 {
 
     protected $titulo="Alumnos";
+
+    public function __construct()
+    {
+        $rol = session('rol');
+        //if(!isset($rol))
+            //Redirect::to('login')->send();
+    }
 
     /**
      * Display a listing of the resource.

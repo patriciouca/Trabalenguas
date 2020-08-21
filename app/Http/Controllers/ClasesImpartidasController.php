@@ -7,9 +7,19 @@ use App\Clases_Impartidas;
 use App\User;
 use DateTime;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
 
 class ClasesImpartidasController extends Controller
 {
+
+    public function __construct()
+    {
+
+        //Redirect::to('login')->withErrors(['msg', 'The Message'])->send();
+        Redirect::to('login')->with( ['error' => "s"] )->send();
+
+    }
     /**
      * Display a listing of the resource.
      *
@@ -43,7 +53,21 @@ class ClasesImpartidasController extends Controller
 
     public function horario()
     {
-        $clases_impartidas=Clases_Impartidas::orderBy('id','DESC')->paginate(10);
+
+        $clases_final=[];
+
+        $clases_impartidas=Clases_Impartidas::orderBy('id','DESC')->get();
+
+
+
+        foreach ($clases_impartidas as $clas)
+        {
+
+            if($clas->users[0]->id==session()->get('id'))
+            {
+                array_push($clases_final,$clas);
+            }
+        }
 
         $dias=["Lunes","Martes","Miercoles","Jueves","Viernes"];
 
@@ -52,7 +76,7 @@ class ClasesImpartidasController extends Controller
 
         $horas=["15:30","16:15","17:00","17:45","18:30","19:15","20:00","20:45"];
 
-        foreach($clases_impartidas as $clase){
+        foreach($clases_final as $clase){
             $id=$clase['clase_id'];
 
             $clase_modelo=Clases::find($id);
